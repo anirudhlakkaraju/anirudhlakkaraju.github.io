@@ -2,7 +2,7 @@
 body {
     font-family: 'Futura', sans-serif;
     background-color: #eaeaea; /* Change this color to your preferred background color */
-    color: #333; /* Text color */
+    color: #000000; /* Text color */
     margin: 0;
     padding: 20px;
     line-height: 1.6;
@@ -10,7 +10,7 @@ body {
 
 /* Header styling */
 h1 {
-    color: #2c3e50; /* Change this color for the header */
+    color: #000000; /* Change this color for the header */
 }
 
 /* Add more styles as needed */
