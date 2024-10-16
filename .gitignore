@@ -1,0 +1,57 @@
+# Ignore macOS system files
+.DS_Store
+
+# Logs
+*.log
+
+# Node modules (if you use npm or any node-based tools later)
+node_modules/
+
+# Coverage directory (if you use a testing tool with coverage reports)
+coverage/
+
+# Dependencies
+vendor/
+
+# Output directories (if using a build process)
+dist/
+build/
+
+# SQLite database files (if you add a blog or other data storage later)
+*.sqlite
+*.sqlite3
+
+# Golang specific
+*.exe
+*.test
+*.out
+
+# Go module files
+go.sum
+
+# Temporary Go workspaces
+go.work
+go.work.sum
+
+# Editor/project specific
+.vscode/
+.idea/
+*.swp
+*~
+
+# Backup files from code editors
+*.bak
+*.tmp
+
+# Static assets or compiled files (you may want to ignore images or compiled assets here)
+assets/images/
+assets/fonts/
+
+# GitHub Pages specific
+_site/
+
+# Files from external tools (e.g., SASS, Webpack, etc.)
+.sass-cache/
+.npm/
+node_modules/
+.cache/
