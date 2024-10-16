@@ -1,1 +1,2 @@
-# anirudhlakkaraju.github.io
+# Anirudh Lakkaraju
+[Website](https://anirudhlakkaraju.github.io/)
