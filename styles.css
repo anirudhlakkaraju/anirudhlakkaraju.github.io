@@ -1,16 +1,90 @@
-/* Apply the Futura font to the entire page */
+/* To make the site responsive */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Background color selection and universal font */
 body {
     font-family: 'Futura', sans-serif;
-    background-color: #eaeaea; /* Change this color to your preferred background color */
-    color: #000000; /* Text color */
+    background-color: #fffffa; 
+    color: black;
     margin: 0;
-    padding: 20px;
-    line-height: 1.6;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Header styling */
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 90%; /* Responsive width */
+    height: 80vh; /* Responsive height */
+    max-width: 1200px; /* Limit on larger screen */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fffffa;
+}
+
+/* Left nav bar */
+.navbar {
+    flex-basis: 20%; /* Occupy 30% of container */
+    background-color: #fffffa;
+    color: black;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+    list-style-type: none;
+}
+
+.navbar ul li {
+    margin-bottom: 1rem;
+}
+
+.navbar ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
+.content {
+    flex-basis: 70%; /* Occupy 70% of container */
+    padding: 3rem;
+    text-align: left;
+}
+
 h1 {
-    color: #000000; /* Change this color for the header */
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
 }
 
-/* Add more styles as needed */
+p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack navbar on top for small screens */
+        height: auto; /* Adjust height */
+    }
+
+    .navbar {
+        flex-basis: auto;
+        text-align: center;
+    }
+
+    .content {
+        flex-basis: auto;
+    }
+}
