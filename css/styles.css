@@ -8,6 +8,7 @@
 /* Background color selection and universal font */
 body {
     font-family: 'Futura', sans-serif;
+    font-weight: 100;
     background-color: #fffffa; 
     color: black;
     margin: 0;
@@ -64,9 +65,14 @@ body {
     transform: scaleX(0);
     transition: all 0.3s ease-in-out
 }
+
 .navbar ul li a:hover::after {
     visibility: visible;
     transform: scaleX(1);
+}
+
+.navbar ul li a.active {
+    font-weight: 700; 
 }
 
 /* Main Content */
@@ -79,6 +85,7 @@ body {
 h1 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
+    font-weight: 500;
 }
 
 p {
