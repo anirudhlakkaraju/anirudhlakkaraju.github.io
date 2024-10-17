@@ -31,7 +31,7 @@ body {
 
 /* Left nav bar */
 .navbar {
-    flex-basis: 20%; /* Occupy 30% of container */
+    flex-basis: 30%; /* Occupy 30% of container */
     background-color: #fffffa;
     color: black;
     padding: 2rem;
