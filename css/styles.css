@@ -134,3 +134,12 @@ p {
         flex-basis: auto;
     }
 }
+
+.profile-image {
+    position: relative;
+    top: 5%;              
+    left: 80%;
+    width: 125px;
+    height: auto;
+    border-radius: 10px;
+}
