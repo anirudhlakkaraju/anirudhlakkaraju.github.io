@@ -1,0 +1,13 @@
+@import "sun-and-moon.css";
+
+.theme-toggle {
+    --size: 2rem;
+    --icon-fill: hsl(210 10% 30%);
+    --icon-fill-hover: hs(210 10% 15%);
+
+    background: none;
+    border: none;
+    padding: 0;
+
+    
+}
