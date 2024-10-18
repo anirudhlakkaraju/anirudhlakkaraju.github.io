@@ -1,8 +1,43 @@
 @import "theme-toggle.css";
 
-@custom-media --motionOK (prefers-reduced-motion: no-preference)
+@media (prefers-reduced-motion: no-preference) {
+  .sun-and-moon > .sun {
+    transition: transform 0.5s var(--ease-elastic-3);
+  }
 
-/* To make the site responsive */
+  .sun-and-moon > .sun-beams {
+    transition: 
+      transform 0.5s var(--ease-elastic-4),
+      opacity 0.5s var(--ease-3);
+  }
+
+  .sun-and-moon .moon > circle {
+    transition: transform 0.25s var(--ease-out-5);
+  }
+
+  @supports (cx: 1px) {
+    .sun-and-moon .moon > circle {
+      transition: cx 0.25s var(--ease-out-5);
+    }
+  }
+
+  [data-theme="dark"] .sun-and-moon > .sun {
+    transform: scale(1.75);
+    transition-timing-function: var(--ease-3);
+    transition-duration: 0.25s;
+  }
+
+  [data-theme="dark"] .sun-and-moon > .sun-beams {
+    transform: rotateZ(-25deg);
+    transition-duration: 0.15s;
+  }
+
+  [data-theme="dark"] .sun-and-moon > .moon > circle {
+    transition-delay: 0.25s;
+    transition-duration: 0.5s;
+  }
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -13,14 +48,19 @@
 body {
     font-family: 'Futura', sans-serif;
     font-weight: 100;
-    background-color: #fffffa; 
-    color: black;
+    color: black; /* Light mode text color */
     margin: 0;
     padding: 0;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] {
+    background-color: #121212; /* Dark mode background */
+    color: white; /* Dark mode text color */
 }
 
 .container {
@@ -30,16 +70,27 @@ body {
     height: 80vh; /* Responsive height */
     max-width: 1200px; /* Limit on larger screen */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fffffa;
+    background-color: #fffffa; /* Light mode container background */
+}
+
+/* Dark Mode Container */
+[data-theme="dark"] .container {
+    background-color: #1e1e1e; /* Dark mode container background */
 }
 
 /* Left nav bar */
 .navbar {
     flex-basis: 30%; /* Occupy 30% of container */
-    background-color: #fffffa;
-    color: black;
+    background-color: #fffffa; /* Light mode navbar */
+    color: black; /* Light mode text */
     padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode Navbar */
+[data-theme="dark"] .navbar {
+    background-color: #333; /* Dark mode navbar background */
+    color: white; /* Dark mode text */
 }
 
 .navbar ul {
@@ -51,10 +102,15 @@ body {
 }
 
 .navbar ul li a {
-    color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0); /* Light mode link color */
     text-decoration: none;
     font-size: 1.2rem;
     position: relative;
+}
+
+/* Dark Mode Links */
+[data-theme="dark"] .navbar ul li a {
+    color: rgb(255, 255, 255); /* Dark mode link color */
 }
 
 .navbar ul li a::after {
@@ -80,10 +136,15 @@ body {
 }
 
 .underline-yellow {
-    color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0); /* Light mode underline color */
     text-decoration: none;
     font-size: 1.2rem;
     position: relative;
+}
+
+/* Dark Mode Underline */
+[data-theme="dark"] .underline-yellow {
+    color: rgb(255, 255, 255); /* Dark mode underline color */
 }
 
 .underline-yellow::after {
@@ -95,13 +156,10 @@ body {
     left: 0;
     background-color: rgb(255, 225, 0); 
     visibility: visible;
-    /* transform: scaleX(0);
-    transition: all 0.3s ease-in-out; */
 }
 
 .underline-yellow:hover::after {
     visibility: visible;
-    /* transform: scaleX(1); */
 }
 
 /* Main Content */
@@ -117,9 +175,19 @@ h1 {
     font-weight: 500;
 }
 
+/* Dark Mode Heading */
+[data-theme="dark"] h1 {
+    color: white; /* Dark mode heading color */
+}
+
 p {
     font-size: 1.2rem;
     line-height: 1.5;
+}
+
+/* Dark Mode Paragraph */
+[data-theme="dark"] p {
+    color: white; /* Dark mode paragraph color */
 }
 
 /* Adjustments for smaller screens */
@@ -146,4 +214,9 @@ p {
     width: 125px;
     height: auto;
     border-radius: 10px;
+}
+
+/* Dark Mode Avatar */
+[data-theme="dark"] .avatar {
+    filter: brightness(0.8); /* Optional: Adjust avatar visibility in dark mode */
 }
