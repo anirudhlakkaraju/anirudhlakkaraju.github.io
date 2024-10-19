@@ -1,5 +1,197 @@
 @import "theme-toggle.css";
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --background-color-theme-light: #fffffa;
+    --text-color-theme-light: black;
+    --background-color-theme-dark: #121212;
+    --text-color-theme-dark: white;
+    --background-color-theme-dark-navbar: #333333;
+    --link-underline-color: gold;
+}
+
+/* Background color selection and universal font */
+body {
+    font-family: 'Futura', sans-serif;
+    font-weight: 100;
+    color: var(--text-color-theme-light); /* Light mode text color */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Dark Mode Styles */
+[data-theme="dark"] {
+    background-color: var(--background-color-theme-dark);  /* Dark mode background */
+    color: var(--text-color-theme-dark); /* Dark mode text color */
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 90%; /* Responsive width */
+    height: 80vh; /* Responsive height */
+    max-width: 1200px; /* Limit on larger screen */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--background-color-theme-light); /* Light mode container background */
+}
+
+/* Dark Mode Container */
+[data-theme="dark"] .container {
+    background-color: var(--background-color-theme-dark); /* Dark mode container background */
+}
+
+/* Left nav bar */
+.navbar {
+    flex-basis: 30%; /* Occupy 30% of container */
+    background-color: var(--background-color-theme-light); /* Light mode navbar */
+    color: var(--text-color-theme-light); /* Light mode text */
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode Navbar */
+[data-theme="dark"] .navbar {
+    background-color: var(--background-color-theme-dark-navbar); /* Dark mode navbar background */
+    color: var(--text-color-theme-dark); /* Dark mode text */
+}
+
+.navbar ul {
+    list-style-type: none;
+}
+
+.navbar ul li {
+    margin-bottom: 1rem;
+}
+
+.navbar ul li a {
+    color: var(--text-color-theme-light); /* Light mode link color */
+    text-decoration: none;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+/* Dark Mode Links */
+[data-theme="dark"] .navbar ul li a {
+    color: var(--text-color-theme-dark); /* Dark mode link color */
+}
+
+.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--link-underline-color);
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out
+}
+
+.navbar ul li a:hover::after {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.navbar ul li a.active {
+    font-weight: 700; 
+}
+
+.underline-yellow {
+    color: var(--text-color-theme-light); /* Light mode link text color */
+    text-decoration: none;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+/* Dark Mode Underline */
+[data-theme="dark"] .underline-yellow {
+    color: var(--text-color-theme-dark) /* Dark mode text color */
+}
+
+.underline-yellow::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--link-underline-color); 
+    visibility: visible;
+}
+
+.underline-yellow:hover::after {
+    visibility: visible;
+}
+
+/* Main Content */
+.content {
+    flex-basis: 70%; /* Occupy 70% of container */
+    padding: 3rem;
+    text-align: left;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+/* Dark Mode Heading */
+[data-theme="dark"] h1 {
+    color: var(--text-color-theme-dark); /* Dark mode heading color */
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+/* Dark Mode Paragraph */
+[data-theme="dark"] p {
+    color: var(--text-color-theme-dark); /* Dark mode paragraph color */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack navbar on top for small screens */
+        height: auto; /* Adjust height */
+    }
+
+    .navbar {
+        flex-basis: auto;
+        text-align: center;
+    }
+
+    .content {
+        flex-basis: auto;
+    }
+}
+
+.avatar {
+    position: relative;
+    top: 5%;              
+    left: 80%;
+    width: 125px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Dark Mode Avatar */
+[data-theme="dark"] .avatar {
+    filter: brightness(1.0); /* Optional: Adjust avatar visibility in dark mode */
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .sun-and-moon > .sun {
     transition: transform 0.5s var(--ease-elastic-3);
@@ -36,187 +228,4 @@
     transition-delay: 0.25s;
     transition-duration: 0.5s;
   }
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-/* Background color selection and universal font */
-body {
-    font-family: 'Futura', sans-serif;
-    font-weight: 100;
-    color: black; /* Light mode text color */
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Dark Mode Styles */
-[data-theme="dark"] {
-    background-color: #121212; /* Dark mode background */
-    color: white; /* Dark mode text color */
-}
-
-.container {
-    display: flex;
-    flex-direction: row;
-    width: 90%; /* Responsive width */
-    height: 80vh; /* Responsive height */
-    max-width: 1200px; /* Limit on larger screen */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fffffa; /* Light mode container background */
-}
-
-/* Dark Mode Container */
-[data-theme="dark"] .container {
-    background-color: #1e1e1e; /* Dark mode container background */
-}
-
-/* Left nav bar */
-.navbar {
-    flex-basis: 30%; /* Occupy 30% of container */
-    background-color: #fffffa; /* Light mode navbar */
-    color: black; /* Light mode text */
-    padding: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Dark Mode Navbar */
-[data-theme="dark"] .navbar {
-    background-color: #333; /* Dark mode navbar background */
-    color: white; /* Dark mode text */
-}
-
-.navbar ul {
-    list-style-type: none;
-}
-
-.navbar ul li {
-    margin-bottom: 1rem;
-}
-
-.navbar ul li a {
-    color: rgb(0, 0, 0); /* Light mode link color */
-    text-decoration: none;
-    font-size: 1.2rem;
-    position: relative;
-}
-
-/* Dark Mode Links */
-[data-theme="dark"] .navbar ul li a {
-    color: rgb(255, 255, 255); /* Dark mode link color */
-}
-
-.navbar ul li a::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    bottom: -2px;
-    left: 0;
-    background-color: rgb(255, 225, 0);
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out
-}
-
-.navbar ul li a:hover::after {
-    visibility: visible;
-    transform: scaleX(1);
-}
-
-.navbar ul li a.active {
-    font-weight: 700; 
-}
-
-.underline-yellow {
-    color: rgb(0, 0, 0); /* Light mode underline color */
-    text-decoration: none;
-    font-size: 1.2rem;
-    position: relative;
-}
-
-/* Dark Mode Underline */
-[data-theme="dark"] .underline-yellow {
-    color: rgb(255, 255, 255); /* Dark mode underline color */
-}
-
-.underline-yellow::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    bottom: -2px;
-    left: 0;
-    background-color: rgb(255, 225, 0); 
-    visibility: visible;
-}
-
-.underline-yellow:hover::after {
-    visibility: visible;
-}
-
-/* Main Content */
-.content {
-    flex-basis: 70%; /* Occupy 70% of container */
-    padding: 3rem;
-    text-align: left;
-}
-
-h1 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    font-weight: 500;
-}
-
-/* Dark Mode Heading */
-[data-theme="dark"] h1 {
-    color: white; /* Dark mode heading color */
-}
-
-p {
-    font-size: 1.2rem;
-    line-height: 1.5;
-}
-
-/* Dark Mode Paragraph */
-[data-theme="dark"] p {
-    color: white; /* Dark mode paragraph color */
-}
-
-/* Adjustments for smaller screens */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Stack navbar on top for small screens */
-        height: auto; /* Adjust height */
-    }
-
-    .navbar {
-        flex-basis: auto;
-        text-align: center;
-    }
-
-    .content {
-        flex-basis: auto;
-    }
-}
-
-.avatar {
-    position: relative;
-    top: 5%;              
-    left: 80%;
-    width: 125px;
-    height: auto;
-    border-radius: 10px;
-}
-
-/* Dark Mode Avatar */
-[data-theme="dark"] .avatar {
-    filter: brightness(0.8); /* Optional: Adjust avatar visibility in dark mode */
 }
