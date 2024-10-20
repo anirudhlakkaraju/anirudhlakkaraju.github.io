@@ -55,6 +55,9 @@ body {
 
 /* Left nav bar */
 .navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     flex-basis: 30%; /* Occupy 30% of container */
     background-color: var(--background-color-theme-light); /* Light mode navbar */
     color: var(--text-color-theme-light); /* Light mode text */
@@ -167,7 +170,9 @@ p {
 
 .social-icons {
     display: flex;
+    padding-top: 10px;
     gap: 20px;
+    align-items: center;
 }
 
 .social-icons a {
