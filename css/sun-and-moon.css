@@ -23,9 +23,9 @@
 
 
 [data-theme="light"] {
-    background-color: white; /* or another light color */
+    background-color: #fffffa; /* or another light color */
     color: black; /* text color for light mode */
-    }
+}
 
 [data-theme="dark"] {
 background-color: black; /* or another dark color */
