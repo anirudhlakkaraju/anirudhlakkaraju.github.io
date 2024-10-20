@@ -11,8 +11,9 @@
     <link rel="icon" href="./assets/icons/favicon.ico" sizes="any">
     <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    
     <script src="./js/theme-toggle.js"></script>
+    <script src="js/color-picker.js"></script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -21,12 +22,10 @@
             <div class="Menu">
                 <h1>Anirudh Lakkaraju</h1>
                 <ul>
-                    <li><a href="index.html" class="active" class="underline-yellow">About</a></li>
-                    <!-- <li><a href="books.html" class="underline-yellow">Books</a></li> -->
-                    <li><a href="blog.html" class="underline-yellow">Blog</a></li>
-                    <li><a href="projects.html" class="underline-yellow">Projects</a></li>
-                    <li><a href="misc.html" class="underline-yellow">Misc</a></li>
-                    <!-- <li><a href="contact.html" class="underline-yellow">Contact</a></li> -->
+                    <li><a href="index.html" class="active">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="misc.html">Misc</a></li>
                 </ul>
                 <div class="social-icons">
                     <a href="https://www.linkedin.com/in/anirudh-lakkaraju/" target="_blank">
@@ -41,7 +40,7 @@
                 </div>
             </div>
 
-            <!-- <div class="social-theme-row"> -->
+            <div class="theme-menu">
                 <button class="theme-toggle" id="theme-toggle" title="Toggles light & dark mode" aria-label="auto">
                     <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
                         <mask class="moon" id="moon-mask">
@@ -61,14 +60,21 @@
                            </g>
                     </svg>
                 </button>
-            <!-- </div> -->
+                <div class="color-picker">
+                    <div class="ring" data-color="r1"></div>
+                    <div class="ring" data-color="r2" ></div>
+                    <div class="ring" data-color="r3"></div>
+                    <div class="ring" data-color="r4"></div>
+                    <div class="ring" data-color="r5"></div>
+                </div>
+            </div>
         
         </nav> 
         <div class="content">
             <img src="https://github.com/user-attachments/assets/93d05fb6-e466-4506-a856-e1b8832a3ee6" alt="Avatar" class="avatar">
             <!-- <h1>Anirudh Lakkaraju</h1> -->
             <p>Hello! I'm Ani.</p>
-            <p>I'm a software developer at <a href="https://www.theodpcorp.com/homepage" class="underline-yellow">The ODP Corporation</a>.</p>
+            <p>I'm a software developer at <a href="https://www.theodpcorp.com/homepage">The ODP Corporation</a>.</p>
             <!-- <p>I've completed my Master's from <a href="https://www.umass.edu/">University of Massachusetts Amherst</a> and Undergrad from <a href="https://www.bits-pilani.ac.in/hyderabad/">BITS Pilani, Hyderabad Campus</a>.</p> -->
             <p>I'm passionate about AI, Systems and building meaningful projects.</p>
         </div>
