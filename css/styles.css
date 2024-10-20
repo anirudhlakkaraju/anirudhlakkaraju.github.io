@@ -13,6 +13,10 @@
     --text-color-theme-dark: white;
     --background-color-theme-dark-navbar: #333333;
     --link-underline-color: gold;
+    --icon-fill-theme-light: hsl(210 10% 15%);
+    --icon-fill-hover-theme-light: hsl(210 10% 30%);
+    --icon-fill-theme-dark: hsl(201 10% 70%);
+    --icon-fill-hover-theme-dark: hsl(201 15% 90%);
 }
 
 /* Background color selection and universal font */
@@ -159,6 +163,29 @@ p {
 /* Dark Mode Paragraph */
 [data-theme="dark"] p {
     color: var(--text-color-theme-dark); /* Dark mode paragraph color */
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--icon-fill-theme-light);
+}
+
+.social-icons a:hover {
+    color: var(--icon-fill-hover-theme-light);
+}
+
+[data-theme="dark"] .social-icons a {
+    color: var(--icon-fill-theme-dark);
+}
+
+[data-theme="dark"] .social-icons a:hover {
+    color: var(--icon-fill-hover-theme-dark);
 }
 
 /* Adjustments for smaller screens */
