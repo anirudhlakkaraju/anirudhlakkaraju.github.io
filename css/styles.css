@@ -8,20 +8,25 @@
 
 :root {
     --background-color-theme-light: #fffffa;
-    --text-color-theme-light: black;
+    /* --background-color-theme-light: #F5F5F5; */
+    --text-color-theme-light: #141414;
     --background-color-theme-dark: #121212;
-    --text-color-theme-dark: white;
+    --text-color-theme-dark: #F5F5F5;
     --background-color-theme-dark-navbar: #333333;
-    --link-underline-color: gold;
     --icon-fill-theme-light: hsl(210 10% 15%);
     --icon-fill-hover-theme-light: hsl(210 10% 30%);
     --icon-fill-theme-dark: hsl(201 10% 70%);
     --icon-fill-hover-theme-dark: hsl(201 15% 90%);
-    --color-ring-r1: gold;
-    --color-ring-r2: salmon;
-    --color-ring-r3: royalblue;
-    --color-ring-r4: palegreen;
-    --color-ring-r5: blueviolet;
+    --color-ring-r1-light: goldenrod;
+    --color-ring-r2-light: crimson;
+    --color-ring-r3-light: royalblue;
+    --color-ring-r4-light: green;
+    --color-ring-r5-light: purple;
+    --color-ring-r1-dark: gold;
+    --color-ring-r2-dark: lightcoral;
+    --color-ring-r3-dark: deepskyblue;
+    --color-ring-r4-dark: lightgreen;
+    --color-ring-r5-dark: plum;
 
     font-family: Inter, sans-serif;
     font-feature-settings: 'liga' 1, 'calt' 1;
@@ -88,55 +93,110 @@ a:hover::after {
     transform: scaleX(1);
 }
 
-/* Underline in R1*/
+/* Underline in R1 - Light Mode */
 [data-color="r1"] a::after {
-    background-color: var(--color-ring-r1);
+    background-color: var(--color-ring-r1-light);
 }
 
-/* Link color in R1 */
+/* Link color in R1 - Light Mode */
 [data-color="r1"] a {
-    color: var(--color-ring-r1);
+    color: var(--color-ring-r1-light);
 }
 
-/* Underline in R2*/
+/* Underline in R1 - Dark Mode */
+[data-theme="dark"][data-color="r1"] a::after {
+    background-color: var(--color-ring-r1-dark);
+}
+
+/* Link color in R1 - Dark Mode */
+[data-theme="dark"][data-color="r1"] a {
+    color: var(--color-ring-r1-dark);
+}
+
+
+/* Underline in R2 - Light Mode */
 [data-color="r2"] a::after {
-    background-color: var(--color-ring-r2);
+    background-color: var(--color-ring-r2-light);
 }
 
-/* Link color in R2 */
+/* Link color in R2 - Light Mode */
 [data-color="r2"] a {
-    color: var(--color-ring-r2);
+    color: var(--color-ring-r2-light);
 }
 
-/* Underline in R3*/
+/* Underline in R2 - Dark Mode */
+[data-theme="dark"][data-color="r2"] a::after {
+    background-color: var(--color-ring-r2-dark);
+}
+
+/* Link color in R2 - Dark Mode */
+[data-theme="dark"][data-color="r2"] a {
+    color: var(--color-ring-r2-dark);
+}
+
+
+/* Underline in R3 - Light Mode */
 [data-color="r3"] a::after {
-    background-color: var(--color-ring-r3);
+    background-color: var(--color-ring-r3-light);
 }
 
-/* Link  color in R3 */
+/* Link color in R3 - Light Mode */
 [data-color="r3"] a {
-    color: var(--color-ring-r3);
+    color: var(--color-ring-r3-light);
 }
 
-/* Underline in R4*/
+/* Underline in R3 - Dark Mode */
+[data-theme="dark"][data-color="r3"] a::after {
+    background-color: var(--color-ring-r3-dark);
+}
+
+/* Link color in R3 - Dark Mode */
+[data-theme="dark"][data-color="r3"] a {
+    color: var(--color-ring-r3-dark);
+}
+
+
+/* Underline in R4 - Light Mode */
 [data-color="r4"] a::after {
-    background-color: var(--color-ring-r4);
+    background-color: var(--color-ring-r4-light);
 }
 
-/* Link color in R4 */
+/* Link color in R4 - Light Mode */
 [data-color="r4"] a {
-    color: var(--color-ring-r4);
+    color: var(--color-ring-r4-light);
 }
 
-/* Underline in R5*/
+/* Underline in R4 - Dark Mode */
+[data-theme="dark"][data-color="r4"] a::after {
+    background-color: var(--color-ring-r4-dark);
+}
+
+/* Link color in R4 - Dark Mode */
+[data-theme="dark"][data-color="r4"] a {
+    color: var(--color-ring-r4-dark);
+}
+
+
+/* Underline in R5 - Light Mode */
 [data-color="r5"] a::after {
-    background-color: var(--color-ring-r5);
+    background-color: var(--color-ring-r5-light);
 }
 
-/* Link color in R5 */
+/* Link color in R5 - Light Mode */
 [data-color="r5"] a {
-    color: var(--color-ring-r5);
+    color: var(--color-ring-r5-light);
 }
+
+/* Underline in R5 - Dark Mode */
+[data-theme="dark"][data-color="r5"] a::after {
+    background-color: var(--color-ring-r5-dark);
+}
+
+/* Link color in R5 - Dark Mode */
+[data-theme="dark"][data-color="r5"] a {
+    color: var(--color-ring-r5-dark);
+}
+
 
 /* Left nav bar */
 .navbar {
@@ -305,9 +365,9 @@ p {
 
 /* Each color ring */
 .ring {
-    width: 25px;
-    height: 25px;
-    border: 3px solid;
+    width: 28px;
+    height: 28px;
+    border: 4px solid;
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s ease, give transform 0.3s ease;
@@ -324,28 +384,53 @@ p {
 
 /* Set default ring colors */
 .ring[data-color="r1"] {
-    border-color: var(--color-ring-r1);
-    color: var(--color-ring-r1);
+    border-color: var(--color-ring-r1-light);
+    color: var(--color-ring-r1-light);
 }
 
 .ring[data-color="r2"] {
-    border-color: var(--color-ring-r2);
-    color: var(--color-ring-r2);
+    border-color: var(--color-ring-r2-light);
+    color: var(--color-ring-r2-light);
 }
 
 .ring[data-color="r3"] {
-    border-color: var(--color-ring-r3);
-    color: var(--color-ring-r3);
+    border-color: var(--color-ring-r3-light);
+    color: var(--color-ring-r3-light);
 }
 
 .ring[data-color="r4"] {
-    border-color: var(--color-ring-r4);
-    color: var(--color-ring-r4);
+    border-color: var(--color-ring-r4-light);
+    color: var(--color-ring-r4-light);
 }
 
 .ring[data-color="r5"] {
-    border-color: var(--color-ring-r5);
-    color: var(--color-ring-r5);
+    border-color: var(--color-ring-r5-light);
+    color: var(--color-ring-r5-light);
+}
+
+[data-theme="dark"] .ring[data-color="r1"] {
+    border-color: var(--color-ring-r1-dark);
+    color: var(--color-ring-r1-dark);
+}
+
+[data-theme="dark"] .ring[data-color="r2"] {
+    border-color: var(--color-ring-r2-dark);
+    color: var(--color-ring-r2-dark);
+}
+
+[data-theme="dark"] .ring[data-color="r3"] {
+    border-color: var(--color-ring-r3-dark);
+    color: var(--color-ring-r3-dark);
+}
+
+[data-theme="dark"] .ring[data-color="r4"] {
+    border-color: var(--color-ring-r4-dark);
+    color: var(--color-ring-r4-dark);
+}
+
+[data-theme="dark"] .ring[data-color="r5"] {
+    border-color: var(--color-ring-r5-dark);
+    color: var(--color-ring-r5-dark);
 }
 
 /* If a ring is picked, fill with current color */
@@ -357,11 +442,9 @@ p {
 /* If a ring is deselected, remove the color and go back to light theme */
 .unselected {
     background-color: var(--background-color-theme-light);
-    transition: background-color 0.5s ease;
 }
 
 /* If ring is deselected, remove color and go back to dark theme */
 [data-theme='dark'] .unselected {
     background-color: var(--background-color-theme-dark-navbar);
-    transition: background-color 0.5s ease;
 }
