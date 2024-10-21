@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Anirudh Lakkaraju</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-we-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE-Edge">
+    
+    <link rel="icon" href="./assets/icons/favicon.ico" sizes="any">
+    <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="./js/theme-toggle.js"></script>
+    <script src="js/color-picker.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="Menu">
+                <h1>Anirudh Lakkaraju</h1>
+                <ul>
+                    <li><a href="index.html" class="active">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="misc.html">Misc</a></li>
+                </ul>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/anirudh-lakkaraju/" target="_blank">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/anirudhlakkaraju" target="_blank">
+                        <i class="fa fa-github"></i>
+                    </a>
+                    <a href="mailto:lakanirudh123@gmail.com">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <script src="js/menu.js"></script>
+            
+            <div class="theme-menu">
+                <button class="theme-toggle" id="theme-toggle" title="Toggles light & dark mode" aria-label="auto">
+                    <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+                        <mask class="moon" id="moon-mask">
+                            <rect x="0" y="0" width="100%" height="100%" fill="white" />
+                            <circle cx="24" cy="10" r="6" fill="black" />
+                        </mask>
+                        <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="curentColor" />
+                        <g class="sun-beams" stroke="currentColor">
+                            <line x1="12" y1="1" x2="12" y2="3" />
+                            <line x1="12" y1="21" x2="12" y2="23" />
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                            <line x1="1" y1="12" x2="3" y2="12" />
+                            <line x1="21" y1="12" x2="23" y2="12" />
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                           </g>
+                    </svg>
+                </button>
+                <div class="color-picker">
+                    <div class="ring" data-color="r1"></div>
+                    <div class="ring" data-color="r2" ></div>
+                    <div class="ring" data-color="r3"></div>
+                    <div class="ring" data-color="r4"></div>
+                    <div class="ring" data-color="r5"></div>
+                </div>
+            </div>
+        
+        </nav> 
+        <div class="content">
+            <!-- <img src="https://github.com/user-attachments/assets/93d05fb6-e466-4506-a856-e1b8832a3ee6" alt="Avatar" class="avatar"> -->
+            <img src="assets/images/avatar.jpeg" alt="Avatar" class="avatar">
+            <!-- <h1>Anirudh Lakkaraju</h1> -->
+            <p>Hello! I'm Ani.</p>
+            <p>I'm a software developer at <a href="https://www.theodpcorp.com/homepage">The ODP Corporation</a>.</p>
+            <!-- <p>I've completed my Master's from <a href="https://www.umass.edu/">University of Massachusetts Amherst</a> and Undergrad from <a href="https://www.bits-pilani.ac.in/hyderabad/">BITS Pilani, Hyderabad Campus</a>.</p> -->
+            <p>I'm passionate about AI, Systems and building meaningful projects.</p>
+        </div>
+    </div>
+</body>
+</html>
