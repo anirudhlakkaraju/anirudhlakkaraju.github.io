@@ -307,6 +307,11 @@ p {
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s ease, give transform 0.3s ease;
+    color: var(--background-color-theme-light);
+}
+
+[data-theme='dark'] .ring {
+    color: var(--background-color-theme-dark);
 }
 
 .ring:hover {
@@ -316,20 +321,43 @@ p {
 /* Set default ring colors */
 .ring[data-color="r1"] {
     border-color: var(--color-ring-r1);
+    color: var(--color-ring-r1);
 }
 
 .ring[data-color="r2"] {
     border-color: var(--color-ring-r2);
+    color: var(--color-ring-r2);
 }
 
 .ring[data-color="r3"] {
     border-color: var(--color-ring-r3);
+    color: var(--color-ring-r3);
 }
 
 .ring[data-color="r4"] {
     border-color: var(--color-ring-r4);
+    color: var(--color-ring-r4);
 }
 
 .ring[data-color="r5"] {
     border-color: var(--color-ring-r5);
+    color: var(--color-ring-r5);
+}
+
+/* If a ring is picked, fill with current color */
+.selected {
+    background-color: currentColor;
+    transition: background-color 0.5s ease;
+}
+
+/* If a ring is deselected, remove the color and go back to light theme */
+.unselected {
+    background-color: var(--background-color-theme-light);
+    transition: background-color 0.5s ease;
+}
+
+/* If ring is deselected, remove color and go back to dark theme */
+[data-theme='dark'] .unselected {
+    background-color: var(--background-color-theme-dark-navbar);
+    transition: background-color 0.5s ease;
 }
