@@ -44,7 +44,6 @@ go.work.sum
 *.tmp
 
 # Static assets or compiled files (you may want to ignore images or compiled assets here)
-assets/images/
 assets/fonts/
 
 # GitHub Pages specific

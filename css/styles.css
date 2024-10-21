@@ -17,12 +17,27 @@
     --icon-fill-hover-theme-light: hsl(210 10% 30%);
     --icon-fill-theme-dark: hsl(201 10% 70%);
     --icon-fill-hover-theme-dark: hsl(201 15% 90%);
+    --color-ring-r1: gold;
+    --color-ring-r2: salmon;
+    --color-ring-r3: royalblue;
+    --color-ring-r4: palegreen;
+    --color-ring-r5: blueviolet;
+
+    font-family: Inter, sans-serif;
+    font-feature-settings: 'liga' 1, 'calt' 1;
+
+    --header-font-size: 36px;
+    --menu-font-size: 20px;
+    --content-font-size: 16px;
+}
+
+@supports (font-variation-settings: normal) {
+    :root { font-family: InterVariable, sans-serif; }
 }
 
 /* Background color selection and universal font */
 body {
-    font-family: 'Futura', sans-serif;
-    font-weight: 100;
+    font-weight: 400;
     color: var(--text-color-theme-light); /* Light mode text color */
     margin: 0;
     padding: 0;
@@ -30,12 +45,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/* Dark Mode Styles */
-[data-theme="dark"] {
-    background-color: var(--background-color-theme-dark);  /* Dark mode background */
-    color: var(--text-color-theme-dark); /* Dark mode text color */
 }
 
 .container {
@@ -53,6 +62,82 @@ body {
     background-color: var(--background-color-theme-dark); /* Dark mode container background */
 }
 
+/* All links text color */
+a {
+    text-decoration: none;
+    position: relative;
+}
+
+/* The link underline */
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--color-ring-r1);
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out
+}
+
+/* Link animation visible on hover */
+a:hover::after {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+/* Underline in R1*/
+[data-color="r1"] a::after {
+    background-color: var(--color-ring-r1);
+}
+
+/* Link color in R1 */
+[data-color="r1"] a {
+    color: var(--color-ring-r1);
+}
+
+/* Underline in R2*/
+[data-color="r2"] a::after {
+    background-color: var(--color-ring-r2);
+}
+
+/* Link color in R2 */
+[data-color="r2"] a {
+    color: var(--color-ring-r2);
+}
+
+/* Underline in R3*/
+[data-color="r3"] a::after {
+    background-color: var(--color-ring-r3);
+}
+
+/* Link  color in R3 */
+[data-color="r3"] a {
+    color: var(--color-ring-r3);
+}
+
+/* Underline in R4*/
+[data-color="r4"] a::after {
+    background-color: var(--color-ring-r4);
+}
+
+/* Link color in R4 */
+[data-color="r4"] a {
+    color: var(--color-ring-r4);
+}
+
+/* Underline in R5*/
+[data-color="r5"] a::after {
+    background-color: var(--color-ring-r5);
+}
+
+/* Link color in R5 */
+[data-color="r5"] a {
+    color: var(--color-ring-r5);
+}
+
 /* Left nav bar */
 .navbar {
     display: flex;
@@ -63,6 +148,7 @@ body {
     color: var(--text-color-theme-light); /* Light mode text */
     padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: var(--menu-font-size);
 }
 
 /* Dark Mode Navbar */
@@ -79,65 +165,8 @@ body {
     margin-bottom: 1rem;
 }
 
-.navbar ul li a {
-    color: var(--text-color-theme-light); /* Light mode link color */
-    text-decoration: none;
-    font-size: 1.2rem;
-    position: relative;
-}
-
-/* Dark Mode Links */
-[data-theme="dark"] .navbar ul li a {
-    color: var(--text-color-theme-dark); /* Dark mode link color */
-}
-
-.navbar ul li a::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    bottom: -2px;
-    left: 0;
-    background-color: var(--link-underline-color);
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out
-}
-
-.navbar ul li a:hover::after {
-    visibility: visible;
-    transform: scaleX(1);
-}
-
 .navbar ul li a.active {
     font-weight: 700; 
-}
-
-.underline-yellow {
-    color: var(--text-color-theme-light); /* Light mode link text color */
-    text-decoration: none;
-    font-size: 1.2rem;
-    position: relative;
-}
-
-/* Dark Mode Underline */
-[data-theme="dark"] .underline-yellow {
-    color: var(--text-color-theme-dark) /* Dark mode text color */
-}
-
-.underline-yellow::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    bottom: -2px;
-    left: 0;
-    background-color: var(--link-underline-color); 
-    visibility: visible;
-}
-
-.underline-yellow:hover::after {
-    visibility: visible;
 }
 
 /* Main Content */
@@ -145,12 +174,17 @@ body {
     flex-basis: 70%; /* Occupy 70% of container */
     padding: 3rem;
     text-align: left;
+    color: var(--text-color-theme-light);
+}
+
+[data-theme="dark"] .content {
+    color: var(--text-color-theme-dark);
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: var(--header-font-size);
     margin-bottom: 1.5rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 /* Dark Mode Heading */
@@ -159,7 +193,7 @@ h1 {
 }
 
 p {
-    font-size: 1.2rem;
+    font-size: var(--content-font-size);
     line-height: 1.5;
 }
 
@@ -260,4 +294,74 @@ p {
     transition-delay: 0.25s;
     transition-duration: 0.5s;
   }
+}
+
+.color-picker {
+    display: flex;
+    margin-top: 10px;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Each color ring */
+.ring {
+    width: 25px;
+    height: 25px;
+    border: 3px solid;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, give transform 0.3s ease;
+    color: var(--background-color-theme-light);
+}
+
+[data-theme='dark'] .ring {
+    color: var(--background-color-theme-dark);
+}
+
+.ring:hover {
+    transform: scale(1.1); /* Slightly enlarge the ring when hovering */
+}
+
+/* Set default ring colors */
+.ring[data-color="r1"] {
+    border-color: var(--color-ring-r1);
+    color: var(--color-ring-r1);
+}
+
+.ring[data-color="r2"] {
+    border-color: var(--color-ring-r2);
+    color: var(--color-ring-r2);
+}
+
+.ring[data-color="r3"] {
+    border-color: var(--color-ring-r3);
+    color: var(--color-ring-r3);
+}
+
+.ring[data-color="r4"] {
+    border-color: var(--color-ring-r4);
+    color: var(--color-ring-r4);
+}
+
+.ring[data-color="r5"] {
+    border-color: var(--color-ring-r5);
+    color: var(--color-ring-r5);
+}
+
+/* If a ring is picked, fill with current color */
+.selected {
+    background-color: currentColor;
+    transition: background-color 0.5s ease;
+}
+
+/* If a ring is deselected, remove the color and go back to light theme */
+.unselected {
+    background-color: var(--background-color-theme-light);
+    transition: background-color 0.5s ease;
+}
+
+/* If ring is deselected, remove color and go back to dark theme */
+[data-theme='dark'] .unselected {
+    background-color: var(--background-color-theme-dark-navbar);
+    transition: background-color 0.5s ease;
 }
