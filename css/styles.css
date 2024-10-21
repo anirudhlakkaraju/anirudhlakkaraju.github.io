@@ -165,6 +165,10 @@ a:hover::after {
     margin-bottom: 1rem;
 }
 
+.navbar ul li a.active {
+    font-weight: 700; 
+}
+
 /* Main Content */
 .content {
     flex-basis: 70%; /* Occupy 70% of container */
