@@ -19,7 +19,10 @@ const setColorPreference = () => {
 // Function to reflect the user's preference in the document
 const reflectColorPreference = () => {
     document.firstElementChild.setAttribute('data-color', color.value);
-
+    
+    // Update the global --color-ring CSS variable in the root element
+    document.documentElement.style.setProperty('--color-ring', `var(--color-ring-${color.value})`);
+    
     let selectedRing = document.querySelector(`.color-picker .ring[data-color="${color.value}"]`)
     if (selectedRing) {
         selectedRing.classList.add('selected');
