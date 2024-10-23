@@ -1,27 +1,25 @@
 @import "theme-toggle.css";
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
+/* -------- Root variables -------- */
 :root {
-    --background-color-theme-light: #fffffa;
-    --text-color-theme-light: black;
+    /* --background-color-theme-light: #fffffa; */
+    --background-color-theme-light: #F5F5F5;
     --background-color-theme-dark: #121212;
-    --text-color-theme-dark: white;
     --background-color-theme-dark-navbar: #333333;
-    --link-underline-color: gold;
-    --icon-fill-theme-light: hsl(210 10% 15%);
-    --icon-fill-hover-theme-light: hsl(210 10% 30%);
-    --icon-fill-theme-dark: hsl(201 10% 70%);
-    --icon-fill-hover-theme-dark: hsl(201 15% 90%);
-    --color-ring-r1: gold;
-    --color-ring-r2: salmon;
+
+    --text-color-theme-light: #141414;
+    --text-color-theme-dark: #F5F5F5;
+    
+    --icon-fill-theme: hsl(210 10% 15%);
+    --icon-fill-hover-theme: hsl(210 10% 30%);
+
+    --color-ring-r1: goldenrod;
+    --color-ring-r2: crimson;
     --color-ring-r3: royalblue;
-    --color-ring-r4: palegreen;
-    --color-ring-r5: blueviolet;
+    --color-ring-r4: green;
+    --color-ring-r5: purple;
+
+    --color-ring: var(--color-ring-r1);
 
     font-family: Inter, sans-serif;
     font-feature-settings: 'liga' 1, 'calt' 1;
@@ -31,11 +29,30 @@
     --content-font-size: 16px;
 }
 
+[data-theme="dark"] {
+    --color-ring-r1: gold;
+    --color-ring-r2: lightcoral;
+    --color-ring-r3: deepskyblue;
+    --color-ring-r4: lightgreen;
+    --color-ring-r5: plum;
+    --color-ring: var(--color-ring-r1);
+    
+    --icon-fill-theme: hsl(201 10% 70%);
+    --icon-fill-hover-theme: hsl(201 15% 90%);
+}
+
 @supports (font-variation-settings: normal) {
     :root { font-family: InterVariable, sans-serif; }
 }
 
-/* Background color selection and universal font */
+/* -------- Global Dimensions -------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* -------- CSS for Body -------- */
 body {
     font-weight: 400;
     color: var(--text-color-theme-light); /* Light mode text color */
@@ -45,8 +62,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--background-color-theme-light);
 }
 
+[data-theme="dark"] body {
+    background-color: var(--background-color-theme-dark);
+}
+
+/* -------- CSS for Container -------- */
 .container {
     display: flex;
     flex-direction: row;
@@ -62,10 +85,13 @@ body {
     background-color: var(--background-color-theme-dark); /* Dark mode container background */
 }
 
+/* -------- CSS for all Links -------- */
+
 /* All links text color */
 a {
     text-decoration: none;
     position: relative;
+    color: var(--color-ring);
 }
 
 /* The link underline */
@@ -76,7 +102,7 @@ a::after {
     height: 2px;
     bottom: -2px;
     left: 0;
-    background-color: var(--color-ring-r1);
+    background-color: var(--color-ring);
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out
@@ -88,56 +114,7 @@ a:hover::after {
     transform: scaleX(1);
 }
 
-/* Underline in R1*/
-[data-color="r1"] a::after {
-    background-color: var(--color-ring-r1);
-}
-
-/* Link color in R1 */
-[data-color="r1"] a {
-    color: var(--color-ring-r1);
-}
-
-/* Underline in R2*/
-[data-color="r2"] a::after {
-    background-color: var(--color-ring-r2);
-}
-
-/* Link color in R2 */
-[data-color="r2"] a {
-    color: var(--color-ring-r2);
-}
-
-/* Underline in R3*/
-[data-color="r3"] a::after {
-    background-color: var(--color-ring-r3);
-}
-
-/* Link  color in R3 */
-[data-color="r3"] a {
-    color: var(--color-ring-r3);
-}
-
-/* Underline in R4*/
-[data-color="r4"] a::after {
-    background-color: var(--color-ring-r4);
-}
-
-/* Link color in R4 */
-[data-color="r4"] a {
-    color: var(--color-ring-r4);
-}
-
-/* Underline in R5*/
-[data-color="r5"] a::after {
-    background-color: var(--color-ring-r5);
-}
-
-/* Link color in R5 */
-[data-color="r5"] a {
-    color: var(--color-ring-r5);
-}
-
+/* -------- CSS for Navbar-------- */
 /* Left nav bar */
 .navbar {
     display: flex;
@@ -145,7 +122,6 @@ a:hover::after {
     justify-content: space-between;
     flex-basis: 30%; /* Occupy 30% of container */
     background-color: var(--background-color-theme-light); /* Light mode navbar */
-    color: var(--text-color-theme-light); /* Light mode text */
     padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-size: var(--menu-font-size);
@@ -154,7 +130,6 @@ a:hover::after {
 /* Dark Mode Navbar */
 [data-theme="dark"] .navbar {
     background-color: var(--background-color-theme-dark-navbar); /* Dark mode navbar background */
-    color: var(--text-color-theme-dark); /* Dark mode text */
 }
 
 .navbar ul {
@@ -169,7 +144,69 @@ a:hover::after {
     font-weight: 700; 
 }
 
-/* Main Content */
+.social-icons {
+    display: flex;
+    padding-top: 10px;
+    gap: 20px;
+    align-items: center;
+}
+
+.social-icons a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--icon-fill-theme);
+}
+
+.social-icons a:hover {
+    color: var(--icon-fill-hover-theme);
+}
+
+.color-picker {
+    display: flex;
+    margin-top: 10px;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Each color ring */
+.ring {
+    width: 28px;
+    height: 28px;
+    border: 4px solid;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, give transform 0.3s ease;
+    color: var(--color-ring);
+	border-color: var(--color-ring);
+}
+
+.ring:hover {
+    transform: scale(1.1); /* Slightly enlarge the ring when hovering */
+    
+}
+[data-theme='dark'] .ring {
+    color: var(--color-ring);
+	border-color: var(--color-ring);
+}
+
+/* If a ring is picked, fill with current color */
+.selected {
+    background-color: currentColor;
+    transition: background-color 0.5s ease;
+}
+
+/* If a ring is deselected, remove the color and go back to light theme */
+.unselected {
+    background-color: var(--background-color-theme-light);
+}
+
+/* If ring is deselected, remove color and go back to dark theme */
+[data-theme='dark'] .unselected {
+    background-color: var(--background-color-theme-dark-navbar);
+}
+
+
+/* -------- CSS for Content -------- */
 .content {
     flex-basis: 70%; /* Occupy 70% of container */
     padding: 3rem;
@@ -202,29 +239,18 @@ p {
     color: var(--text-color-theme-dark); /* Dark mode paragraph color */
 }
 
-.social-icons {
-    display: flex;
-    padding-top: 10px;
-    gap: 20px;
-    align-items: center;
+.avatar {
+    position: relative;
+    top: 5%;              
+    left: 80%;
+    width: 125px;
+    height: auto;
+    border-radius: 10px;
 }
 
-.social-icons a {
-    text-decoration: none;
-    font-size: 1.5rem;
-    color: var(--icon-fill-theme-light);
-}
-
-.social-icons a:hover {
-    color: var(--icon-fill-hover-theme-light);
-}
-
-[data-theme="dark"] .social-icons a {
-    color: var(--icon-fill-theme-dark);
-}
-
-[data-theme="dark"] .social-icons a:hover {
-    color: var(--icon-fill-hover-theme-dark);
+/* Dark Mode Avatar */
+[data-theme="dark"] .avatar {
+    filter: brightness(1.0); /* Optional: Adjust avatar visibility in dark mode */
 }
 
 /* Adjustments for smaller screens */
@@ -242,20 +268,6 @@ p {
     .content {
         flex-basis: auto;
     }
-}
-
-.avatar {
-    position: relative;
-    top: 5%;              
-    left: 80%;
-    width: 125px;
-    height: auto;
-    border-radius: 10px;
-}
-
-/* Dark Mode Avatar */
-[data-theme="dark"] .avatar {
-    filter: brightness(1.0); /* Optional: Adjust avatar visibility in dark mode */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -294,74 +306,4 @@ p {
     transition-delay: 0.25s;
     transition-duration: 0.5s;
   }
-}
-
-.color-picker {
-    display: flex;
-    margin-top: 10px;
-    gap: 20px;
-    align-items: center;
-}
-
-/* Each color ring */
-.ring {
-    width: 25px;
-    height: 25px;
-    border: 3px solid;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease, give transform 0.3s ease;
-    color: var(--background-color-theme-light);
-}
-
-[data-theme='dark'] .ring {
-    color: var(--background-color-theme-dark);
-}
-
-.ring:hover {
-    transform: scale(1.1); /* Slightly enlarge the ring when hovering */
-}
-
-/* Set default ring colors */
-.ring[data-color="r1"] {
-    border-color: var(--color-ring-r1);
-    color: var(--color-ring-r1);
-}
-
-.ring[data-color="r2"] {
-    border-color: var(--color-ring-r2);
-    color: var(--color-ring-r2);
-}
-
-.ring[data-color="r3"] {
-    border-color: var(--color-ring-r3);
-    color: var(--color-ring-r3);
-}
-
-.ring[data-color="r4"] {
-    border-color: var(--color-ring-r4);
-    color: var(--color-ring-r4);
-}
-
-.ring[data-color="r5"] {
-    border-color: var(--color-ring-r5);
-    color: var(--color-ring-r5);
-}
-
-/* If a ring is picked, fill with current color */
-.selected {
-    background-color: currentColor;
-    transition: background-color 0.5s ease;
-}
-
-/* If a ring is deselected, remove the color and go back to light theme */
-.unselected {
-    background-color: var(--background-color-theme-light);
-    transition: background-color 0.5s ease;
-}
-
-/* If ring is deselected, remove color and go back to dark theme */
-[data-theme='dark'] .unselected {
-    background-color: var(--background-color-theme-dark-navbar);
-    transition: background-color 0.5s ease;
 }
